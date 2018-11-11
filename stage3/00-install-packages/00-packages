@@ -12,3 +12,6 @@ gldriver-test
 fonts-droid-fallback
 fonts-liberation2
 obconf
+
+
+gzip git-core curl python libssl-dev pkg-config build-essential python g++ make checkinstall

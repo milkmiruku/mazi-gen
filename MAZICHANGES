@@ -8,6 +8,7 @@
 
 * stage1/01-sys-tweaks/00-run.sh
 ** change passwords of pi and root accounts to mazizone
+
 * stage1/02-net-tweaks/files/interfaces
 ** wlan interface static ip details and manual start (for hostapd)
 * stage1/02-net-tweaks/00-patches/01-hosts.diff
@@ -20,16 +21,26 @@
 ** run back-end wifiap.sh
 * stage2/01-sys-tweaks/01-run.sh
 ** enable SSH
+
+* stage2/02-net-tweaks/00-packages
+** install apache2
 * stage2/02-net-tweaks/files/wpa_supplicant.conf
 ** Set SSID and open access
 * stage2/02-net-tweaks/files/hostapd.conf
 * stage2/02-net-tweaks/files/dnsmasq.conf
+* stage2/02-net-tweaks/files/index.html
+* stage2/02-net-tweaks/files/.htaccess
 * stage2/02-net-tweaks/01-run.sh
 ** copy across dnsmasq.conf to /etc/, hostapd.conf to /etc/hostapd/
-** enable dnsmasq, ip forwarding
+** index.html and .htaccess to /var/www/html
+** enable dnsmasq, IP forwarding, Apache mod_rewrite
 
+* stage3/00-install-packages/00-packages
+** gzip git-core curl python libssl-dev pkg-config build-essential python g++ make checkinstall
 * stage3/00-install-packages/01-run.sh
 ** pip install speedtest-cli
+** setup and install for Etherpad Lite
+
 
 ## things to do and check
 
