@@ -1,15 +1,15 @@
-# pi-gen
+# mazi-gen
 
 _Tool used to create the raspberrypi.org Raspbian+Mazi images_
 
 
 ## Dependencies
 
-pi-gen runs on Debian based operating systems. Currently it is only supported on
+mazi-gen runs on Debian based operating systems. Currently it is only supported on
 either Debian Stretch or Ubuntu Xenial and is known to have issues building on
 earlier releases of these systems.
 
-To install the required dependencies for pi-gen you should run:
+To install the required dependencies for mazi-gen you should run:
 
 ```bash
 apt-get install quilt parted realpath qemu-user-static debootstrap zerofree pxz zip \
@@ -51,12 +51,12 @@ The following environment variables are supported:
 
    **CAUTION**: Currently, changing this value will probably break build.sh
 
-   Top-level directory for `pi-gen`.  Contains stage directories, build
+   Top-level directory for `mazi-gen`.  Contains stage directories, build
    scripts, and by default both work and deployment directories.
 
  * `WORK_DIR`  (Default: `"$BASE_DIR/work"`)
 
-   Directory in which `pi-gen` builds the target system.  This value can be
+   Directory in which `mazi-gen` builds the target system.  This value can be
    changed if you have a suitably large, fast storage location for stages to
    be built and cached.  Note, `WORK_DIR` stores a complete copy of the target
    system for each build stage, amounting to tens of gigabytes in the case of
@@ -193,7 +193,7 @@ maintenance and allows for more easy customization.
    development purposes on a minimal system such as basic Python and Lua
    packages as well as the `build-essential` package.  They are lumped right
    in with more essential packages presently, though they need not be with
-   pi-gen.  These are understandable for Raspbian's target audience, but if
+   mazi-gen.  These are understandable for Raspbian's target audience, but if
    you were looking for something between truly minimal and Raspbian-Lite,
    here's where you start trimming.
 
@@ -254,7 +254,7 @@ follows:
 ## `binfmt_misc`
 
 Linux is able execute binaries from other architectures, meaning that it should be
-possible to make use of `pi-gen` on an x86_64 system, even though it will be running
+possible to make use of `mazi-gen` on an x86_64 system, even though it will be running
 ARM binaries. This requires support from the [`binfmt_misc`](https://en.wikipedia.org/wiki/Binfmt_misc)
 kernel module.
 
