@@ -17,4 +17,8 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
+# /sbin/ifconfig wlan0 10.0.0.1
+# ^ already set in interfaces??
+sh /root/back-end/wifiap.sh
+
 exit 0

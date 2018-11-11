@@ -1,0 +1,38 @@
+# Changes from pi-gen
+
+## Files amended and created
+
+* Dockerfile
+** add image name environment variable
+** git clone of Mazi back-end
+
+* stage1/01-sys-tweaks/00-run.sh
+** change passwords of pi and root accounts to mazizone
+* stage1/02-net-tweaks/files/interfaces
+** wlan interface static ip details and manual start (for hostapd)
+* stage1/02-net-tweaks/00-patches/01-hosts.diff
+** add local and portal domain for Mazi static ip
+
+* stage2/01-sys-tweaks/00-packages
+** install of python-pip, sshpass, jq, sqlite3, speedtest-cli, dnsmasq, hostapd, iptables-persistent, batctl
+** install of tmux, fd-find, mlocate, htop, ncdu, dtrx
+* stage2/01-sys-tweaks/files/rc.local
+** run back-end wifiap.sh
+* stage2/01-sys-tweaks/01-run.sh
+** enable SSH
+* stage2/02-net-tweaks/files/wpa_supplicant.conf
+** Set SSID and open access
+* stage2/02-net-tweaks/files/hostapd.conf
+* stage2/02-net-tweaks/files/dnsmasq.conf
+* stage2/02-net-tweaks/01-run.sh
+** copy across dnsmasq.conf to /etc/, hostapd.conf to /etc/hostapd/
+** enable dnsmasq, ip forwarding
+
+* stage3/00-install-packages/01-run.sh
+** pip install speedtest-cli
+
+## things to do and check
+
+* expand filesystem on first boot
+* t-link firmware - open vs. closed
+* fix the order that things are installed

@@ -23,3 +23,16 @@ htop
 man-db
 policykit-1
 ssh-import-id
+
+python-pip
+sshpass
+jq
+sqlite3
+dnsmasq
+hostapd
+iptables-persistent
+tmux
+fd-find
+mlocate
+ncdu
+dtrx
