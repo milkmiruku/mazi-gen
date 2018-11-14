@@ -32,7 +32,6 @@ dnsmasq
 hostapd
 iptables-persistent
 tmux
-fd-find
 mlocate
 ncdu
 dtrx

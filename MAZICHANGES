@@ -20,7 +20,7 @@
 
 * stage2/01-sys-tweaks/00-packages
 ** install of python-pip, sshpass, jq, sqlite3, speedtest-cli, dnsmasq, hostapd, iptables-persistent, batctl
-** install of tmux, fd-find, mlocate, htop, ncdu, dtrx
+** install of tmux, mlocate, htop, ncdu, dtrx
 * stage2/01-sys-tweaks/files/rc.local
 ** run back-end wifiap.sh
 * stage2/01-sys-tweaks/01-run.sh
