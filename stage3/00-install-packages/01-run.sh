@@ -26,4 +26,27 @@ cp settings.json.template settings.json
 adduser --system --home=/var/www/html/etherpad-lite/ --group etherpad
 chown -R etherpad: /var/www/html/etherpad-lite/
 bash /var/www/html/etherpad-lite/bin/run.sh
+
+
+# for portal
+gem install sinatra sequel sqlite3 rake thin rubyzip mysql --no-ri --no-rdoc
+
+cd /root
+git clone https://github.com/mazi-project/portal.git
+
+cd portal
+rake init
+rake db:migrate
+
+cp init/mazi-portal /etc/init.d/mazi-portal
+chmod +x /etc/init.d/mazi-portal
+update-rc.d mazi-portal enable
+
+# data collection service
+# cp init/mazi-rest /etc/init.d/mazi-rest
+# chmod +x /etc/init.d/mazi-rest
+# update-rc.d mazi-rest enable
+
+service mazi-portal start
+# service mazi-rest start
 EOF

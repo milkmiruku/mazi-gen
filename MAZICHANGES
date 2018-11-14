@@ -37,9 +37,11 @@
 
 * stage3/00-install-packages/00-packages
 ** gzip git-core curl python libssl-dev pkg-config build-essential python g++ make checkinstall
+** for portal: libsqlite3-dev ruby ruby-dev libmysqlclient-dev
 * stage3/00-install-packages/01-run.sh
 ** pip install speedtest-cli
 ** setup and install for Etherpad Lite
+** gem install for portal
 
 
 ## things to do and check
