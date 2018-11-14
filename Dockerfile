@@ -7,6 +7,7 @@ RUN apt-get -y update && \
     apt-get -y install \
         git vim parted \
         quilt realpath qemu-user-static debootstrap zerofree pxz zip dosfstools \
+        libcap2-bin bsdtar xz-utils curl file \
     && rm -rf /var/lib/apt/lists/*
 
 

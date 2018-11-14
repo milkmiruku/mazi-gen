@@ -2,9 +2,13 @@
 
 ## Files amended and created
 
+* ./build-mazi-docker.sh
+** basic script to start docker compose and set environment variables
+
 * Dockerfile
 ** add image name environment variable
 ** git clone of Mazi back-end
+** install of libcap2-bin bsdtar xz-utils curl file (required by docker-build.sh)
 
 * stage1/01-sys-tweaks/00-run.sh
 ** change passwords of pi and root accounts to mazizone
