@@ -50,6 +50,7 @@
 
 ## things to do and check
 
-* expand filesystem on first boot
+* etherpad: finish setup, change defalt config
 * t-link firmware - open vs. closed
 * fix the order that things are installed
+* expand filesystem on first boot(?)
