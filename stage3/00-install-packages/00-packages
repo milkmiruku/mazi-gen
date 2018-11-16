@@ -16,3 +16,4 @@ obconf
 
 gzip git-core curl python libssl-dev pkg-config build-essential python g++ make checkinstall
 libsqlite3-dev ruby ruby-dev default-libmysqlclient-dev
+mysql-client default-mysql-client
