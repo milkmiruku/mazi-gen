@@ -17,12 +17,9 @@ apt-get install -y nodejs
 mysql -u root -e "CREATE DATABASE IF NOT EXISTS etherpad CHARACTER SET utf8 COLLATE utf8_general_ci; GRANT ALL PRIVILEGES ON etherpad.* TO etherpad_user@localhost IDENTIFIED BY 'password'; FLUSH PRIVILEGES;"
 
 cd /var/www/html
-mkdir -p etherpad-lite
+[[ -d etherpad-lite ]] && rm -rf etherpad-lite;
+git clone git://github.com/ether/etherpad-lite.git
 cd etherpad-lite
-git init
-git remote set-url origin git://github.com/ether/etherpad-lite.git
-git fetch
-git checkout origin/master -f
 cp settings.json.template settings.json
 #todo
 
@@ -35,13 +32,9 @@ chown -R etherpad: /var/www/html/etherpad-lite/
 gem install sinatra sequel sqlite3 rake thin rubyzip mysql --no-ri --no-rdoc
 
 cd /root
-mkdir -p portal
+[[ -d portal ]] && rm -rf portal;
+git clone https://github.com/mazi-project/portal.git
 cd portal
-git init
-git remote set-url origin https://github.com/mazi-project/portal.git
-git fetch
-git checkout origin/master -f
-
 rake init
 rake db:migrate
 
@@ -55,6 +48,8 @@ update-rc.d mazi-portal enable
 # chmod +x /etc/init.d/mazi-rest
 # update-rc.d mazi-rest enable
 
-service mazi-portal start
+# service mazi-portal start
 # service mazi-rest start
+
+/etc/init.d/mysql stop
 EOF

@@ -7,9 +7,8 @@ RUN apt-get -y update && \
     apt-get -y install \
         git vim parted \
         quilt realpath qemu-user-static debootstrap zerofree pxz zip dosfstools \
-        libcap2-bin bsdtar xz-utils curl file \
+        libcap2-bin bsdtar xz-utils curl file psmisc lsof \
     && rm -rf /var/lib/apt/lists/*
-
 
 COPY . /pi-gen/
 

@@ -15,4 +15,5 @@ obconf
 
 
 gzip git-core curl python libssl-dev pkg-config build-essential python g++ make checkinstall
-libsqlite3-dev ruby ruby-dev mariadb-client-10.1 mariadb-server-10.1
+libsqlite3-dev ruby ruby-dev mariadb-client-10.1 mariadb-server-10.1 libmariadbclient-dev
+lsof psmisc
