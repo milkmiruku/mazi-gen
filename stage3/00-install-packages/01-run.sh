@@ -52,4 +52,5 @@ update-rc.d mazi-portal enable
 # service mazi-rest start
 
 /etc/init.d/mysql stop
+sleep 15
 EOF
