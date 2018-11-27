@@ -55,8 +55,10 @@ fi
 $DOCKER build -t pi-gen .
 if [ "$CONTAINER_EXISTS" != "" ]; then
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}_cont" SIGINT SIGTERM
-	time $DOCKER run --rm --privileged \
-    --cap-add MKNOD --cap-add SYS_ADMIN --device-cgroup-rule="b 7:* rmw" \
+    # --device-cgroup-rule="b 7:* rmw" -v /dev/loop-control:/dev/loop-control
+	time $DOCKER run --rm \
+    --privileged --cap-add SYS_ADMIN --cap-add MKNOD \
+    -v /dev/loop0:/dev/loop0 -v /dev/loop1:/dev/loop1 -v /dev/loop2:/dev/loop2 -v /dev/loop3:/dev/loop3 -v /dev/loop4:/dev/loop4 -v /dev/loop5:/dev/loop5 -v /dev/loop6:/dev/loop6 \
 		--volumes-from="${CONTAINER_NAME}" --name "${CONTAINER_NAME}_cont" \
 		-e IMG_NAME="${IMG_NAME}"\
 		pi-gen \
@@ -66,8 +68,10 @@ if [ "$CONTAINER_EXISTS" != "" ]; then
 	wait "$!"
 else
 	trap "echo 'got CTRL+C... please wait 5s'; $DOCKER stop -t 5 ${CONTAINER_NAME}" SIGINT SIGTERM
-	time $DOCKER run --name "${CONTAINER_NAME}" --privileged \
-    --cap-add MKNOD --cap-add SYS_ADMIN --device-cgroup-rule="b 7:* rmw" \
+    # --cap-add MKNOD --device-cgroup-rule="b 7:* rmw" \
+	time $DOCKER run --name "${CONTAINER_NAME}" \
+    --privileged --cap-add SYS_ADMIN --cap-add MKNOD \
+    -v /dev/loop0:/dev/loop0 -v /dev/loop1:/dev/loop1 -v /dev/loop2:/dev/loop2 -v /dev/loop3:/dev/loop3 -v /dev/loop4:/dev/loop4 -v /dev/loop5:/dev/loop5 -v /dev/loop6:/dev/loop6 \
 		-e IMG_NAME="${IMG_NAME}"\
 		"${config_file[@]}" \
 		pi-gen \

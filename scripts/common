@@ -47,12 +47,12 @@ unmount(){
 		LOCS=$(mount | grep "$DIR" | cut -f 3 -d ' ' | sort -r)
 		for loc in $LOCS; do
 			umount "$loc"
-#      echo
-#      pwd
-#      echo $loc
-#lsof | grep rootfs
-#echo
-#fuser -vcu /pi-gen/work/2018-11-16-mazi/stage2/rootfs/dev
+      echo
+      pwd
+      echo $loc
+lsof | grep work
+echo
+fuser -vcu /pi-gen/work
       echo
 		done
 	done
